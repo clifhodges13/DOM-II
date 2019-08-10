@@ -1,4 +1,5 @@
 // mousedown and mouseup event
+
 function shrinkAndGrow() {
   const logo = document.querySelector('.logo-heading')
   
@@ -13,8 +14,9 @@ function shrinkAndGrow() {
 
 shrinkAndGrow()
 
-// mouseenter and mouseleave event
 
+
+// mouseenter and mouseleave event
 
 function skewAndReverse() {
   const navLinks = document.querySelectorAll('.nav .nav-link')
@@ -29,6 +31,8 @@ function skewAndReverse() {
 }
 
 skewAndReverse()
+
+
 
 // keydown event
 
@@ -61,6 +65,8 @@ function createPopUpOnKey(){
 
 createPopUpOnKey()
 
+
+
 // double click event
 
 function growOnDoubleClick() {
@@ -88,3 +94,57 @@ function growOnDoubleClick() {
 }
 
 growOnDoubleClick()
+
+
+
+// copy to clipboard event
+
+function copyAlert() {
+  window.addEventListener('copy', () => {
+    alert(`You just copied something to your clipboard!`)
+  })
+}
+
+copyAlert();
+
+
+
+// scroll and animationend events
+
+function slideOnScroll() {
+  window.addEventListener('scroll', () => {
+    // get boxes that will slide
+    const boxes = document.querySelectorAll('.img-content img')
+
+    // add scroll animation to each when window is scrolled
+    boxes.forEach(box => {
+      box.style.animation = `slideIn 1s ease-out 1s`
+    })
+
+    // rotate boxes when animation is ended
+    boxes.forEach(box => {
+      box.addEventListener('animationend', () => {
+        box.style.transform = `rotate(8deg)`
+      })
+    })
+
+    // reset animation after 5 seconds
+    window.setTimeout(() => {
+      boxes.forEach(box => {
+        box.style.animation = ``
+      })
+    }, 5000)
+  })
+}
+
+slideOnScroll()
+
+// drag start event
+
+function dragAlert() {
+  window.addEventListener('dragstart', () => {
+    alert(`Hey! Where are you going with that??`)
+  })
+}
+
+dragAlert()

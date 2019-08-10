@@ -250,9 +250,6 @@ img {
   border-radius: 10px;
   transition: all 1s ease-out 2s;
 }
-.blue-border {
-  border: 10px solid blue;
-}
 .footer {
   width: 100%;
   border-top: 2px dashed #C0C0C0;
@@ -387,4 +384,14 @@ img {
 .home .content-pick .destination .btn:hover {
   background: #FFFFFF;
   color: #17A2B8;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

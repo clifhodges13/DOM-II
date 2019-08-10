@@ -215,6 +215,9 @@ img {
   color: #212529;
   text-decoration: none;
 }
+.skew {
+  transform: skew(-30deg);
+}
 @keyframes shrinkAndGrow {
   0% {
     transform: scale(1);
@@ -228,6 +231,27 @@ img {
     transform: scale(1);
     opacity: 1;
   }
+}
+.popup {
+  display: block;
+  position: absolute;
+  height: 400px;
+  width: 500px;
+  color: white;
+  font-size: 3rem;
+  top: 400%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  transition: all 1s ease-out 2s;
+}
+.blue-border {
+  border: 10px solid blue;
 }
 .footer {
   width: 100%;

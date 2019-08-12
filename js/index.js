@@ -16,16 +16,21 @@ shrinkAndGrow()
 
 
 
-// mouseenter and mouseleave event
+// mouseenter and mouseleave event // prevent default method
 
 function skewAndReverse() {
   const navLinks = document.querySelectorAll('.nav .nav-link')
 
-  navLinks.forEach(link => link.addEventListener('mouseenter', (e) => {
+  // prevent default
+  navLinks.forEach(link => link.addEventListener('click', e => {
+    e.preventDefault()
+  }))
+
+  navLinks.forEach(link => link.addEventListener('mouseenter', e => {
     e.target.classList.toggle('skew')
   }))
 
-  navLinks.forEach(link => link.addEventListener('mouseleave', (e) => {
+  navLinks.forEach(link => link.addEventListener('mouseleave', e => {
     e.target.classList.toggle('skew')
   }))
 }
@@ -37,7 +42,7 @@ skewAndReverse()
 // keydown event
 
 function createPopUpOnKey(){
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     function createPopUp() {
       // create element and add popup class to it
       const popUp = document.createElement('div')
@@ -77,7 +82,7 @@ function growOnDoubleClick() {
   // add double click event listener to each button
   function eventHandler(buttons, picture) {
     buttons.forEach(btn => {
-      btn.addEventListener('dblclick', e => {
+      btn.addEventListener('dblclick', () => {
         // grow picture when button is double clicked
         picture.style.transform = `scale(1.5)`
 
@@ -148,3 +153,21 @@ function dragAlert() {
 }
 
 dragAlert()
+
+// click event with propagation
+
+function stopProp() {
+  const intro = document.querySelector('.content-section')
+  const subHeading = document.querySelector('.content-section .text-content h2')
+
+  subHeading.addEventListener('click', e => {
+    e.target.style.backgroundColor = 'red'
+    e.stopPropagation()
+  })
+
+  intro.addEventListener("click", e => {
+    e.target.style.backgroundColor = 'blue'
+  })
+}
+
+stopProp()
